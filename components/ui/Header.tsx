@@ -16,7 +16,7 @@ export default function Header() {
       if (currentScrollY > lastScrollY.current) {
         if (window.pageYOffset === 0) {
           ref.current && (ref.current.style.transform = "translateY(0)");
-        } else {
+        } else if (window.pageYOffset !== 0) {
           ref.current && (ref.current.style.transform = "translateY(-100%)");
         }
       } else if (currentScrollY < lastScrollY.current) {
