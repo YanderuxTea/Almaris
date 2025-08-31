@@ -1,3 +1,7 @@
+"use client";
+
+import React from "react";
+
 export default function LoaderSpinner() {
   return (
     <div className="w-16 h-16 mx-auto relative animate-spinLoader">
@@ -12,7 +16,7 @@ export default function LoaderSpinner() {
                 "--base-rotation": `${rotation}deg`,
                 transform: `rotate(${rotation}deg)`,
                 animationDelay: `${i * 0.1}s`,
-              } as any
+              } as React.CSSProperties
             }
           ></div>
         );

@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
-
+import React, { useEffect, useLayoutEffect } from "react";
 import { jost } from "@/public/font";
 import SliderFunction from "@/public/functions/SliderFunction";
 import ButtonsForSlider from "./ButtonsForSlider";

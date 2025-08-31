@@ -1,6 +1,6 @@
 import Arrow from "@/public/svg/Arrow";
 interface IProps {
-  buttonSlideFunction: Function;
+  buttonSlideFunction: (side: number) => void;
 }
 export default function ButtonsForSlider({ buttonSlideFunction }: IProps) {
   return (

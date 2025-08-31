@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import StarsForSlider from "./StarsForSlider";
 import Image, { StaticImageData } from "next/image";
@@ -14,9 +15,9 @@ interface IProps {
   currentSideRef: RefObject<number>;
   currentPos: RefObject<number>;
   nextPos: RefObject<number>;
-  startSwipe: Function;
-  endSwipe: Function;
-  swipeFunction: Function;
+  startSwipe: (e: React.TouchEvent | React.MouseEvent) => void;
+  endSwipe: () => void;
+  swipeFunction: (e: React.TouchEvent | React.MouseEvent) => void;
   jost: NextFont;
 }
 export default function InsideSlider({
