@@ -15,14 +15,11 @@ export default function Header() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY.current) {
         if (window.pageYOffset === 0) {
-          return;
+          ref.current && (ref.current.style.transform = "translateY(0)");
         } else {
           ref.current && (ref.current.style.transform = "translateY(-100%)");
         }
       } else if (currentScrollY < lastScrollY.current) {
-        ref.current && (ref.current.style.transform = "translateY(0)");
-      }
-      if (window.pageYOffset === 0) {
         ref.current && (ref.current.style.transform = "translateY(0)");
       }
       lastScrollY.current = currentScrollY;
