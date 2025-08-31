@@ -17,7 +17,7 @@ export default function Header() {
         if (window.pageYOffset < 1) {
           ref.current && (ref.current.style.transform = "translateY(0)");
         } else if (
-          window.pageYOffset! < 1 &&
+          window.pageYOffset > 1 &&
           document.body.style.position !== "fixed"
         ) {
           ref.current && (ref.current.style.transform = "translateY(-100%)");
