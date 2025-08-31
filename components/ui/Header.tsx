@@ -14,9 +14,12 @@ export default function Header() {
     function transformHeader() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY.current) {
-        if (window.pageYOffset === 0) {
+        if (window.pageYOffset < 1) {
           ref.current && (ref.current.style.transform = "translateY(0)");
-        } else if (window.pageYOffset !== 0) {
+        } else if (
+          window.pageYOffset! < 1 &&
+          document.body.style.position !== "fixed"
+        ) {
           ref.current && (ref.current.style.transform = "translateY(-100%)");
         }
       } else if (currentScrollY < lastScrollY.current) {
