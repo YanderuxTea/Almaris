@@ -13,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={clsx("scroll-smooth", marcellus.className)}>
-      <body className="antialiased">{children}</body>
+    <html
+      lang="en"
+      className={clsx("scroll-smooth w-full h-full", marcellus.className)}
+    >
+      <body className="antialiased w-full h-full">{children}</body>
     </html>
   );
 }

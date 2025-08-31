@@ -124,10 +124,8 @@ export default function SliderFunction() {
       currentY.current = 0; //Обнуление текущей позиции по оси Y
       document.documentElement.style.overflow = "unset";
       document.documentElement.style.position = "unset";
-      document.documentElement.style.width = "";
       document.body.style.overflow = "unset";
       document.body.style.position = "unset";
-      document.body.style.width = "";
     }
     isSwipe.current = false; //Снятие флага свайпа
     definedSwipe.current = false; //Обнуления флага определен свайп или нет
@@ -169,14 +167,10 @@ export default function SliderFunction() {
       definedSwipe.current = true; //Установка флага определения свайп или нет
     }
     if (isSwipe.current) {
-      document.documentElement.style.overflow = "hidden"; //Блокировка скроллинга страницы
-      document.documentElement.style.position = "fixed"; //Блокировка скроллинга страницы
-      document.documentElement.style.width = "100%"; //Блокировка скроллинга страницы
-      document.documentElement.style.height = "100%"; //Блокировка скроллинга страницы
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.position = "fixed";
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed"; //Блокировка скроллинга страницы
-      document.body.style.width = "100%"; //Блокировка скроллинга страницы
-      document.body.style.height = "100%"; //Блокировка скроллинга страницы
+      document.body.style.position = "fixed";
 
       intervalRef.current && clearInterval(intervalRef.current); //Очистка интервала
       //Если свайп

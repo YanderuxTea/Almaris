@@ -27,12 +27,18 @@ export default function Header() {
   }, []);
   useEffect(() => {
     if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.position = "fixed";
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
       refMenu.current && (refMenu.current.style.transform = "translateY(0%)");
       refBackground.current &&
         (refBackground.current.style.transform = "translateY(0%)");
     } else {
+      document.documentElement.style.overflow = "unset";
+      document.documentElement.style.position = "unset";
       document.body.style.overflow = "unset";
+      document.body.style.position = "unset";
       refMenu.current &&
         (refMenu.current.style.transform = "translateY(-100%)");
       refBackground.current &&
