@@ -123,6 +123,7 @@ export default function SliderFunction() {
       currentX.current = 0; //Обнуление текущей позиции по оси X
       currentY.current = 0; //Обнуление текущей позиции по оси Y
       document.documentElement.style.overflow = "unset"; //Снятие блокировки скролла
+      document.body.style.overflow = "unset";
     }
     isSwipe.current = false; //Снятие флага свайпа
     definedSwipe.current = false; //Обнуления флага определен свайп или нет
@@ -165,6 +166,7 @@ export default function SliderFunction() {
     }
     if (isSwipe.current) {
       document.documentElement.style.overflow = "hidden"; //Блокировка скроллинга страницы
+      document.body.style.overflow = "hidden";
       intervalRef.current && clearInterval(intervalRef.current); //Очистка интервала
       //Если свайп
       const threshold = currentWidth / 2; //Переменная порог переключения картинки
