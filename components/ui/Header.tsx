@@ -7,7 +7,6 @@ import Link from "next/link";
 export default function Header() {
   const ref = useRef<HTMLHeadElement>(null);
   const refMenu = useRef<HTMLDivElement>(null);
-  const scrollTop = useRef<number>(0);
   const refBackground = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,7 +14,11 @@ export default function Header() {
     function transformHeader() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY.current) {
-        ref.current && (ref.current.style.transform = "translateY(-100%)");
+        if (window.pageYOffset === 0) {
+          return;
+        } else {
+          ref.current && (ref.current.style.transform = "translateY(-100%)");
+        }
       } else if (currentScrollY < lastScrollY.current) {
         ref.current && (ref.current.style.transform = "translateY(0)");
       }
@@ -31,20 +34,12 @@ export default function Header() {
   }, []);
   useEffect(() => {
     if (isOpen) {
-      scrollTop.current = window.pageYOffset;
-      document.documentElement.style.overflow = "hidden";
-      document.documentElement.style.position = "fixed";
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
       refMenu.current && (refMenu.current.style.transform = "translateY(0%)");
       refBackground.current &&
         (refBackground.current.style.transform = "translateY(0%)");
     } else {
-      document.body.style.top = -scrollTop + "px";
-      document.documentElement.style.overflow = "unset";
-      document.documentElement.style.position = "unset";
       document.body.style.overflow = "unset";
-      document.body.style.position = "unset";
       refMenu.current &&
         (refMenu.current.style.transform = "translateY(-100%)");
       refBackground.current &&

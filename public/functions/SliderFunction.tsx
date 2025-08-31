@@ -122,10 +122,7 @@ export default function SliderFunction() {
       startY.current = 0; //Обнуление стартовой позиции по оси Y
       currentX.current = 0; //Обнуление текущей позиции по оси X
       currentY.current = 0; //Обнуление текущей позиции по оси Y
-      document.documentElement.style.overflow = "unset";
-      document.documentElement.style.position = "unset";
       document.body.style.overflow = "unset";
-      document.body.style.position = "unset";
     }
     isSwipe.current = false; //Снятие флага свайпа
     definedSwipe.current = false; //Обнуления флага определен свайп или нет
@@ -167,11 +164,7 @@ export default function SliderFunction() {
       definedSwipe.current = true; //Установка флага определения свайп или нет
     }
     if (isSwipe.current) {
-      document.documentElement.style.overflow = "hidden";
-      document.documentElement.style.position = "fixed";
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-
       intervalRef.current && clearInterval(intervalRef.current); //Очистка интервала
       //Если свайп
       const threshold = currentWidth / 2; //Переменная порог переключения картинки
