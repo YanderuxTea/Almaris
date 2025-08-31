@@ -164,6 +164,7 @@ export default function SliderFunction() {
       definedSwipe.current = true; //Установка флага определения свайп или нет
     }
     if (isSwipe.current) {
+      document.documentElement.style.overflow = "hidden"; //Блокировка скроллинга страницы
       intervalRef.current && clearInterval(intervalRef.current); //Очистка интервала
       //Если свайп
       const threshold = currentWidth / 2; //Переменная порог переключения картинки
