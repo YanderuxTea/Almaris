@@ -1,0 +1,16 @@
+export default function Star({ scale }: { scale?: number }) {
+  return (
+    <svg
+      width="17"
+      height="16"
+      viewBox="0 0 17 16"
+      className="fill-none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
+        className="fill-[#DAA150]"
+      />
+    </svg>
+  );
+}

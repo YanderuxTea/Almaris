@@ -1,26 +1,77 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --animate-spinLoader: spinLoader 1.5s ease-in-out infinite;
+  --animate-dotSpinLoader: dotSpinLoader 1.5s ease-in-out infinite;
+  --animate-currentSlide: currentSlide 1s ease-in-out;
+  --animate-nextSlide: nextSlide 1s ease-in-out;
+  --animate-currentSlideSWIPE: currentSlideSWIPE 1s ease-in-out;
+  --animate-nextSlideSWIPE: nextSlideSWIPE 1s ease-in-out;
+  --animate-animElements: animElements 1.5s ease-in-out;
+  --animate-animText: animText 1.5s ease-in-out;
+  @keyframes spinLoader {
+    to {
+      transform: rotate(360deg);
+    }
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @keyframes dotSpinLoader {
+    0%,
+    100% {
+      transform: rotate(var(--base-rotation));
+    }
+    50% {
+      transform: rotate(calc(var(--base-rotation)+ 30deg));
+    }
+  }
+  @keyframes currentSlide {
+    0% {
+      transform: translateX(calc(100% * var(--current-side)));
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes nextSlide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(100% * -1 * var(--current-side)));
+    }
+  }
+  @keyframes currentSlideSWIPE {
+    0% {
+      transform: translateX(calc(var(--current-pos)));
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes nextSlideSWIPE {
+    0% {
+      transform: translateX(var(--current-pos-next));
+    }
+    100% {
+      transform: translateX(calc(100% * -1 * var(--current-side)));
+    }
+  }
+  @keyframes animElements {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes animText {
+    0% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 }
