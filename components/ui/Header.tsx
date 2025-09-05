@@ -30,7 +30,6 @@ export default function Header() {
       }
       scrollY.current = currentScroll;
       scrollY.current === 0 ? setScroll(false) : setScroll(true);
-      console.log(currentScroll, scrollY);
     }
     function setCurW() {
       setCurrentWidth(window.innerWidth);
