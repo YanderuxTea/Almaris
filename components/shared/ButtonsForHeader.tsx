@@ -1,21 +1,28 @@
+import { jost } from "@/public/font";
 import Arrow from "@/public/svg/Arrow";
+import clsx from "clsx";
 export default function ButtonsForHeader() {
   return (
-    <>
-      <button className="py-3 text-left flex flex-row justify-between items-center mt-15.25">
+    <div
+      className={clsx(
+        "mt-15.25 mb-7.5 flex flex-col text-white text-[17px] lg:flex-row lg:gap-10 lg:m-0",
+        jost.className
+      )}
+    >
+      <button className="py-3 text-left flex flex-row justify-between items-center gap-2 cursor-pointer">
         Rooms <Arrow />
       </button>
-      <hr className="text-[#464646]" />
-      <button className="py-3 text-left">Reservation</button>
-      <hr className="text-[#464646]" />
-      <button className="py-3 text-left flex flex-row justify-between items-center">
+      <hr className="text-[#464646] lg:hidden" />
+      <button className="py-3 text-left cursor-pointer">Reservation</button>
+      <hr className="text-[#464646] lg:hidden" />
+      <button className="py-3 text-left flex flex-row justify-between items-center gap-2 cursor-pointer">
         Pages <Arrow />
       </button>
-      <hr className="text-[#464646]" />
-      <button className="py-3 text-left">News</button>
-      <hr className="text-[#464646]" />
-      <button className="py-3 text-left">Contact</button>
-      <hr className="text-[#464646] mb-7.5" />
-    </>
+      <hr className="text-[#464646] lg:hidden " />
+      <button className="py-3 text-left cursor-pointer">News</button>
+      <hr className="text-[#464646] lg:hidden " />
+      <button className="py-3 text-left cursor-pointer">Contact</button>
+      <hr className="text-[#464646] lg:hidden " />
+    </div>
   );
 }

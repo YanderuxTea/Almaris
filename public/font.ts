@@ -5,6 +5,6 @@ export const marcellus = Marcellus({
   subsets: ["latin"],
 });
 export const jost = Jost({
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });

@@ -144,6 +144,7 @@ export default function InsideSlider({
               </Link>
             </div>
             <Image
+              priority
               draggable={false}
               src={image}
               alt=""
