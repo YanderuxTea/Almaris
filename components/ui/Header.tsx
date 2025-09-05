@@ -77,14 +77,15 @@ export default function Header() {
         {currentWidth >= 1024 ? (
           <>
             <ButtonsForHeader />{" "}
-            <button
+            <Link
+              href={"/reservation"}
               className={clsx(
                 jost.className,
                 "font-medium text-xs text-white tracking-[2px] border border-white/35 transition-colors duration-300 ease-in-out hover:bg-[#AB8965] cursor-pointer px-5 py-2.5"
               )}
             >
               RESERVATION
-            </button>
+            </Link>
           </>
         ) : null}
       </header>
