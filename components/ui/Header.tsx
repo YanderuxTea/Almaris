@@ -28,6 +28,9 @@ export default function Header() {
       } else {
         ref.current && (ref.current.style.transform = "translateY(0%)");
       }
+      if (window.pageYOffset < 1) {
+        ref.current && (ref.current.style.transform = "translateY(0%)");
+      }
       scrollY.current = currentScroll;
       scrollY.current === 0 ? setScroll(false) : setScroll(true);
     }
