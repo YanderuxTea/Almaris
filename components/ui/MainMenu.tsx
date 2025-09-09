@@ -7,6 +7,8 @@ interface IMainMenu {
   isOpen: boolean;
 }
 export default function MainMenu({ isOpen }: IMainMenu) {
+  const [isOpenListRooms, setIsOpenListRooms] = useState<boolean>(false);
+  const [isOpenListPages, setIsOpenListPages] = useState<boolean>(false);
   return (
     <div
       className={`z-2 fixed w-full flex flex-col max-h-screen top-0 px-5 py-10 pt-22.5 transition-transform duration-300 ease-in-out overflow-y-auto ${
@@ -14,7 +16,6 @@ export default function MainMenu({ isOpen }: IMainMenu) {
       }`}
     >
       {arrMainMenuButtonData.map((element, index) => {
-        const [isOpenList, setIsOpenList] = useState<boolean>(false);
         return (
           <div key={index}>
             <div className="flex flex-row justify-between">
@@ -25,8 +26,24 @@ export default function MainMenu({ isOpen }: IMainMenu) {
                 {element.title}
               </Link>
               {element.isList ? (
-                <button onClick={() => setIsOpenList(!isOpenList)}>
-                  <Arrow rotate={isOpenList ? 180 : 0} />
+                <button
+                  onClick={() =>
+                    element.title === "Rooms"
+                      ? setIsOpenListRooms(!isOpenListRooms)
+                      : setIsOpenListPages(!isOpenListPages)
+                  }
+                >
+                  <Arrow
+                    rotate={
+                      element.title === "Rooms"
+                        ? isOpenListRooms
+                          ? 180
+                          : 0
+                        : isOpenListPages
+                        ? 180
+                        : 0
+                    }
+                  />
                 </button>
               ) : null}
             </div>
