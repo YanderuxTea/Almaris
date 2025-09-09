@@ -27,7 +27,7 @@ export default function Header() {
         className={`${
           jost.className
         } flex px-5 py-2.5 lg:px-10 items-center justify-center text-white z-10 fixed w-full transition-all duration-300 ease-in-out translate-y-[${
-          result ? -100 : 0
+          result ? (isTopPage ? 0 : -100) : 0
         }%] before:absolute before:bg-[#181818] before:w-full before:h-full before:z-10 before:lg:hidden`}
         style={{
           backgroundColor: `${
