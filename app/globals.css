@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme{
+    --animate-swiperTimerCurrentSlide: swiperTimerCurrentSlide 1.5s ease-in-out;
+    --animate-swiperTimerNextSlide: swiperTimerNextSlide 1.5s ease-in-out;
+    @keyframes swiperTimerCurrentSlide {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @keyframes swiperTimerNextSlide {
+        to {
+            transform: translateX(-100%);
+        }
+    }
+}
