@@ -12,7 +12,8 @@ export default function Slider() {
           <div className='absolute overflow-hidden z-1 w-full h-full' key={i} ref={(el) => {
             divRef.current[i] = el
           }}>
-            <Image src={image} alt='image for slider' className='object-cover object-left brightness-75' priority
+            <Image src={image} alt='image for slider' className='object-cover object-left brightness-75 w-full h-full'
+                   priority
                    draggable={false}/>
           </div>)
       })}
