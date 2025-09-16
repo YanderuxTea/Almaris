@@ -1,69 +1,11 @@
-import Header from "@/components/ui/Header";
+import Header from '@/components/ui/Header'
+import Slider from '@/components/ui/Slider'
 
 export default function page() {
   return (
-    <main className="bg-black">
-      <Header />
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
-      <p>fsd</p>
+    <main className='flex flex-col min-h-screen'>
+      <Header/>
+      <Slider/>
     </main>
-  );
+  )
 }

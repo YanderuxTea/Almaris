@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { marcellus } from "@/public/Fonts";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Almaris главная",
