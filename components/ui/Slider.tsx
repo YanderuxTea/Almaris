@@ -1,41 +1,63 @@
 'use client'
 import {images} from '@/public/data/ImagesForSlider'
-import {useEffect, useRef} from 'react'
 import Image from 'next/image'
-import SwiperTimerFunction from '@/public/features/functions/SwiperTimerFunction'
-import VariablesForSwiper from '@/public/features/functions/VariablesForSwiper'
+import React, {useEffect, useRef} from 'react'
+import SliderByTimer from '@/public/features/functions/SliderByTimer'
 import {clearInterval} from 'node:timers'
+import Arrow from '@/public/svg/Arrow'
+import SliderByButtons from '@/public/features/functions/SliderByButtons'
 
 export default function Slider() {
-  const divRef = useRef<(HTMLDivElement | null)[]>([null])
-  const {
-    intervalRef,
-    setCooldownTime,
-    currentSlide,
-    setFirstRender,
-    firstRender
-  } = VariablesForSwiper()
+  const currentSide = React.useRef<number>(1)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const currentIndexSlide = useRef<number>(0)
+  const [cooldownTime, setCooldownTime] = React.useState<number>(0)
+  const [firstRender, setFirstRender] = React.useState<boolean>(true)
   useEffect(() => {
-    SwiperTimerFunction(intervalRef, setCooldownTime, currentSlide, setFirstRender, 3000, images)
-    const id = intervalRef.current
+    SliderByTimer({
+      currentSide: currentSide,
+      intervalRef: intervalRef,
+      currentIndexSlide: currentIndexSlide,
+      setFirstRender: setFirstRender,
+      setCooldownTime: setCooldownTime,
+      delay: 3000,
+      imgArr: images
+    })
+    const intRef = intervalRef.current
     return () => {
-      if (id) clearInterval(id)
+      if (intRef) clearInterval(intRef)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
-    <section className='relative min-h-screen overflow-hidden'>
+    <section className='min-h-screen relative flex flex-row items-center overflow-clip justify-between'>
+      <button className='z-3 rotate-90 cursor-pointer scale-175 px-2.5' onClick={() => SliderByButtons({
+        currentSide: currentSide,
+        intervalRef: intervalRef,
+        buttonSide: 'left',
+        imgArr: images,
+        currentIndexSlide: currentIndexSlide,
+        setFirstRender: setFirstRender,
+        setCooldownTime: setCooldownTime,
+        cooldownTime: cooldownTime
+      })}><Arrow color='AB8965'/></button>
+      <button className='z-3 -rotate-90 cursor-pointer scale-175 px-2.5' onClick={() => SliderByButtons({
+        currentSide: currentSide,
+        intervalRef: intervalRef,
+        buttonSide: 'right',
+        imgArr: images,
+        currentIndexSlide: currentIndexSlide,
+        setFirstRender: setFirstRender,
+        setCooldownTime: setCooldownTime,
+        cooldownTime: cooldownTime
+      })}><Arrow color='AB8965'/></button>
       {images.map((image, i) => {
-        return (
-          <div
-            className={`absolute overflow-hidden z-1 w-full h-full ${currentSlide.current === i ? firstRender ? 'animate-none z-2' : 'animate-swiperTimerCurrentSlide z-2' : firstRender ? 'animate-none z-1' : 'animate-swiperTimerNextSlide z-1'}`}
-            key={i} ref={(el) => {
-            divRef.current[i] = el
-          }}>
-            <Image src={image} alt='image for slider' className='object-cover object-left brightness-75 w-full h-full'
-                   priority
-                   draggable={false}/>
-          </div>)
+        return <div
+          className={`absolute w-full h-full ${i === currentIndexSlide.current ? firstRender ? 'animate-none z-2' : 'animate-swiperTimerCurrentSlide z-2' : firstRender ? 'animate-none z-1' : 'animate-swiperTimerNextSlide z-1'}`}
+          key={i}
+          style={{'--currentSide': currentSide.current} as React.CSSProperties}>
+          <Image src={image} alt='image for slider' priority draggable={false}
+                 className='w-full h-full object-cover object-left'/>
+        </div>
       })}
     </section>
   )
