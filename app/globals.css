@@ -1,19 +1,69 @@
 @import "tailwindcss";
+@layer base {
+    ::-webkit-scrollbar {
+        background-color: #dddddd;
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #ab8965;
+        border-radius: 4px;
+    }
+}
 
 @theme{
-    --animate-swiperTimerCurrentSlide: swiperTimerCurrentSlide 1.5s ease-in-out;
-    --animate-swiperTimerNextSlide: swiperTimerNextSlide 1.5s ease-in-out;
-    @keyframes swiperTimerCurrentSlide {
+    --animate-currentSlideAnim: currentSlideAnim 1.5s ease-in-out;
+    --animate-nextSlideAnim: nextSlideAnim 1.5s ease-in-out;
+    --animate-currentSlideAnimSwipe: currentSlideAnimSwipe 1.5s ease-in-out;
+    --animate-nextSlideAnimSwipe: nextSlideAnimSwipe 1.5s ease-in-out;
+    --animate-dotSpinLoader: dotSpinLoader 1.5s ease-in-out infinite;
+    --animate-spinLoader: spinLoader 1.5s ease-in-out infinite;
+    @keyframes currentSlideAnim {
         0% {
-            transform: translateX(calc(var(--currentSide) * 100%));
+            transform: translateX(calc(100% * var(--current-side)));
         }
         100% {
             transform: translateX(0);
         }
     }
-    @keyframes swiperTimerNextSlide {
+    @keyframes nextSlideAnim {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% * var(--current-side)));
+        }
+    }
+    @keyframes currentSlideAnimSwipe {
+        0% {
+            transform: translateX(var(--curr-pos));
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @keyframes nextSlideAnimSwipe {
+        0% {
+            transform: translateX(var(--next-pos));
+        }
+        100% {
+            transform: translateX(calc(100% * var(--anim-side)));
+        }
+    }
+    @keyframes dotSpinLoader {
+        0% {
+            transform: rotate(var(--base-rotation));
+        }
+        50% {
+            transform: rotate(calc(var(--base-rotation) + 15deg));
+        }
+        100% {
+            transform: rotate(var(--base-rotation));
+        }
+    }
+    @keyframes spinLoader {
         to {
-            transform: translateX(calc(var(--currentSide) * -100%));
+            transform: rotate(360deg);
         }
     }
 }

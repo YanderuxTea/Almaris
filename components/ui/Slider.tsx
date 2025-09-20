@@ -2,27 +2,30 @@
 import {images} from '@/public/data/ImagesForSlider'
 import Image from 'next/image'
 import React, {useEffect, useRef} from 'react'
-import SliderByTimer from '@/public/features/functions/SliderByTimer'
-import {clearInterval} from 'node:timers'
-import Arrow from '@/public/svg/Arrow'
-import SliderByButtons from '@/public/features/functions/SliderByButtons'
+import ButtonForSlider from '@/components/shared/ButtonForSlider'
+import SlidersFunctions from '@/public/features/functions/SlidersFunctions'
 
 export default function Slider() {
-  const currentSide = React.useRef<number>(1)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const currentIndexSlide = useRef<number>(0)
-  const [cooldownTime, setCooldownTime] = React.useState<number>(0)
-  const [firstRender, setFirstRender] = React.useState<boolean>(true)
+
+  const divRef = useRef<(HTMLDivElement | null)[]>([null])
+  const {
+    SliderByTimer,
+    intervalRef,
+    SliderByButtons,
+    moveDrag,
+    endDrag,
+    startDrag,
+    currentIndexSlide,
+    isSwipe,
+    firstRender,
+    swipeAnimation,
+    currentSide,
+    currentSlidePosition,
+    nextSlidePosition,
+    sideAnim
+  } = SlidersFunctions({divRef: divRef})
   useEffect(() => {
-    SliderByTimer({
-      currentSide: currentSide,
-      intervalRef: intervalRef,
-      currentIndexSlide: currentIndexSlide,
-      setFirstRender: setFirstRender,
-      setCooldownTime: setCooldownTime,
-      delay: 3000,
-      imgArr: images
-    })
+    SliderByTimer()
     const intRef = intervalRef.current
     return () => {
       if (intRef) clearInterval(intRef)
@@ -30,33 +33,31 @@ export default function Slider() {
   }, [])
   return (
     <section className='min-h-screen relative flex flex-row items-center overflow-clip justify-between'>
-      <button className='z-3 rotate-90 cursor-pointer scale-175 px-2.5' onClick={() => SliderByButtons({
-        currentSide: currentSide,
-        intervalRef: intervalRef,
-        buttonSide: 'left',
-        imgArr: images,
-        currentIndexSlide: currentIndexSlide,
-        setFirstRender: setFirstRender,
-        setCooldownTime: setCooldownTime,
-        cooldownTime: cooldownTime
-      })}><Arrow color='AB8965'/></button>
-      <button className='z-3 -rotate-90 cursor-pointer scale-175 px-2.5' onClick={() => SliderByButtons({
-        currentSide: currentSide,
-        intervalRef: intervalRef,
-        buttonSide: 'right',
-        imgArr: images,
-        currentIndexSlide: currentIndexSlide,
-        setFirstRender: setFirstRender,
-        setCooldownTime: setCooldownTime,
-        cooldownTime: cooldownTime
-      })}><Arrow color='AB8965'/></button>
+      <ButtonForSlider buttonSide='left' SliderByButtons={SliderByButtons}/>
+      <ButtonForSlider buttonSide='right' SliderByButtons={SliderByButtons}/>
       {images.map((image, i) => {
         return <div
-          className={`absolute w-full h-full ${i === currentIndexSlide.current ? firstRender ? 'animate-none z-2' : 'animate-swiperTimerCurrentSlide z-2' : firstRender ? 'animate-none z-1' : 'animate-swiperTimerNextSlide z-1'}`}
+          ref={(el) => {
+            divRef.current[i] = el
+          }}
+          className={`absolute w-full h-full ${i === currentIndexSlide.current ? isSwipe.current ? 'z-2' : firstRender ? 'animate-none z-2' : swipeAnimation ? 'animate-currentSlideAnimSwipe z-2' : 'animate-currentSlideAnim z-2' : isSwipe.current ? 'z-1' : firstRender ? 'animate-none z-1' : swipeAnimation ? 'animate-nextSlideAnimSwipe z-1' : 'animate-nextSlideAnim z-1'}`}
+          style={{
+            '--current-side': currentSide.current,
+            '--curr-pos': `${currentSlidePosition.current}%`,
+            '--next-pos': `${nextSlidePosition.current}%`,
+            '--anim-side': sideAnim.current,
+            transform: `${isSwipe.current ? (i === currentIndexSlide.current) ? `translateX(${currentSlidePosition.current}%)` : `translateX(${nextSlidePosition.current}%)` : 'translateX(0%)'}`
+          } as React.CSSProperties}
           key={i}
-          style={{'--currentSide': currentSide.current} as React.CSSProperties}>
+          onTouchStart={(e) => startDrag(e)}
+          onTouchMove={(e) => moveDrag(e)}
+          onTouchEnd={() => endDrag()}
+          onMouseDown={(e) => startDrag(e)}
+          onMouseMove={(e) => moveDrag(e)}
+          onMouseUp={() => endDrag()}
+        >
           <Image src={image} alt='image for slider' priority draggable={false}
-                 className='w-full h-full object-cover object-left'/>
+                 className='w-full h-full object-cover object-left -z-1'/>
         </div>
       })}
     </section>
