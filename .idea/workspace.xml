@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21cffbd1-2f65-42ca-a832-b1cd1f7c2827" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/shared/ButtonForSlider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/shared/LoaderSpinner.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui/Preloader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/features/functions/SlidersFunctions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/shared/SliderPagination.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ui/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/features/functions/SliderByButtons.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/features/functions/SliderByTimer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Fonts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/Fonts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +113,7 @@
       <workItem from="1758191061543" duration="15742000" />
       <workItem from="1758284921964" duration="12111000" />
       <workItem from="1758298604359" duration="8910000" />
-      <workItem from="1758359876142" duration="14387000" />
+      <workItem from="1758359876142" duration="19915000" />
     </task>
     <servers />
   </component>
