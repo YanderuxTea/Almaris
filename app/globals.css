@@ -18,6 +18,8 @@
     --animate-nextSlideAnimSwipe: nextSlideAnimSwipe 1.5s ease-in-out;
     --animate-dotSpinLoader: dotSpinLoader 1.5s ease-in-out infinite;
     --animate-spinLoader: spinLoader 1.5s ease-in-out infinite;
+    --animate-animElements: animElements 1.5s ease-in-out;
+    --animate-animText: animText 2s ease-in-out;
     @keyframes currentSlideAnim {
         0% {
             transform: translateX(calc(100% * var(--current-side)));
@@ -64,6 +66,26 @@
     @keyframes spinLoader {
         to {
             transform: rotate(360deg);
+        }
+    }
+    @keyframes animElements {
+        0% {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes animText {
+        0% {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }

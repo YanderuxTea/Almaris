@@ -63,11 +63,15 @@ export default function Slider() {
           <div className='absolute flex inset-0 items-center justify-center p-10'>
             <div
               className='flex md:aspect-square w-full flex-col gap-5 md:w-auto justify-center h-[calc(80%)] items-center rounded-t-full border-2 border-[#AB8965] backdrop-blur-xl text-center text-white'>
-              <StarsByCounts count={5} color='#E4A853'/>
-              <p className='text-5xl/13.75 tracking-[-2px] font-light lg:text-[64px]/18.25 max-w-193'>
+              <div className={`${i === currentIndexSlide.current ? 'animate-animElements' : 'animate-none'}`}>
+                <StarsByCounts count={5} color='#E4A853'/>
+              </div>
+              <p
+                className={`text-5xl/13.75 tracking-[-2px] font-light lg:text-[64px]/18.25 max-w-193 ${i === currentIndexSlide.current ? 'animate-animText' : 'animate-none'}`}>
                 {i === 0 ? 'Where Every Stay is Extraordinary' : 'Experience Hospitality Like Never Before'}
               </p>
-              <p className={`${jost.className} text-white/75 text-[16px]/6. max-w-128`}>
+              <p
+                className={`${jost.className} text-white/75 text-[16px]/6. max-w-128 ${i === currentIndexSlide.current ? 'animate-animText' : 'animate-none'}`}>
                 Discover the perfect blend of luxury, comfort,
                 and convenience at Almaris. Nestled in the heart
                 of Brooklyn, our hotel is your gateway to an
@@ -75,7 +79,7 @@ export default function Slider() {
               </p>
               <button
                 onClick={() => alert('Привет!!')}
-                className={`tracking-[2px] text-[12px] ${jost.className} bg-[#AB8965] px-5 py-2.5 cursor-pointer relative after:content[""] after:absolute after:inset-0 after:outline-2 after:outline-black after:blur-[6px] after:-z-1 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100`}>DISCOVER
+                className={`tracking-[2px] text-[12px] ${jost.className} bg-[#AB8965] px-5 py-2.5 cursor-pointer relative after:content[""] after:absolute after:inset-0 after:outline-2 after:outline-black after:blur-[6px] after:-z-1 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100 ${i === currentIndexSlide.current ? 'animate-animElements' : 'animate-none'}`}>DISCOVER
                 ROOMS
               </button>
             </div>
