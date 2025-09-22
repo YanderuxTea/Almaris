@@ -79,7 +79,7 @@ export default function Slider() {
               </p>
               <button
                 onClick={() => alert('Привет!!')}
-                className={`tracking-[2px] text-[12px] ${jost.className} bg-[#AB8965] px-5 py-2.5 cursor-pointer relative after:content[""] after:absolute after:inset-0 after:outline-2 after:outline-black after:blur-[6px] after:-z-1 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100 ${i === currentIndexSlide.current ? 'animate-animElements' : 'animate-none'}`}>DISCOVER
+                className={`tracking-[2px] text-[12px] ${jost.className} bg-[#AB8965] px-5 py-2.5 cursor-pointer relative font-medium after:content[""] after:absolute after:inset-0 after:outline-2 after:outline-black after:blur-[6px] after:-z-1 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100 ${i === currentIndexSlide.current ? 'animate-animElements' : 'animate-none'}`}>DISCOVER
                 ROOMS
               </button>
             </div>

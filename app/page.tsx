@@ -1,6 +1,8 @@
 import Header from '@/components/ui/Header'
 import Slider from '@/components/ui/Slider'
 import Preloader from '@/components/ui/Preloader'
+import Reservation from '@/components/ui/Reservation'
+import Test from '@/components/ui/Test'
 
 export default function page() {
   return (
@@ -8,26 +10,8 @@ export default function page() {
       <Preloader/>
       <Header/>
       <Slider/>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
-      <p>Привт</p>
+      <Reservation/>
+      <Test/>
     </main>
   )
 }

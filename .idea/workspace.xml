@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21cffbd1-2f65-42ca-a832-b1cd1f7c2827" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/shared/BlockChooseDate.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/shared/Calendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/shared/CounterForReservation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/Reservation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/Test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/features/Variables/Month.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/features/Variables/VariablesCalendar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/features/context/ContextCalendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/svg/Calendar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/RoomsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/RoomsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ui/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Slider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +104,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-WS-252.26199.162" />
       </set>
     </attachedChunks>
   </component>
@@ -112,7 +123,11 @@
       <workItem from="1758191061543" duration="15742000" />
       <workItem from="1758284921964" duration="12111000" />
       <workItem from="1758298604359" duration="8910000" />
-      <workItem from="1758359876142" duration="22231000" />
+      <workItem from="1758359876142" duration="25304000" />
+      <workItem from="1758446203749" duration="20563000" />
+      <workItem from="1758520842443" duration="1127000" />
+      <workItem from="1758552137574" duration="2430000" />
+      <workItem from="1758560843906" duration="1132000" />
     </task>
     <servers />
   </component>

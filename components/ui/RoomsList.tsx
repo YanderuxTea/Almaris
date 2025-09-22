@@ -9,7 +9,7 @@ export default function RoomsList() {
       className='flex flex-col p-6 bg-white text-[#181818] gap-2.5 lg:flex-row lg:translate-y-15.25 lg:gap-20'>
       <div className='flex flex-col gap-2.5'>
         <p
-          className={`font-semibold text-[22px] tracking-[0.5px] ${marcellus.className}`}
+          className={`font-semibold text-[22px] tracking-[0.5px] ${marcellus.className} `}
         >
           Rooms
         </p>
